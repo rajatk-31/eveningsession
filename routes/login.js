@@ -29,7 +29,7 @@ exports.login=(req,res)=>{
                     email: lData.email,
                     name: lData.name
                 }
-                var token = jwt.sign(tokenData, 'secret')
+                var token = jwt.sign(tokenData, req.app.get('secret'))
                 res.json({
                     success: true,
                     msg: "Login successfull",

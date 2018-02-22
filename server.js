@@ -7,7 +7,7 @@ var todo = require('./routes/routes')
 // use body parser so we can get info from POST and/or URL parameters
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+app.set('secret',config.SECRET)
 mongoose.connect(config.MONGO, ()=>{
     console.log("Database connected")
 })

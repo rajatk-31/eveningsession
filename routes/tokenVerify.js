@@ -7,7 +7,7 @@ exports.tokenVerify=(req,res,next)=>{
             msg: "Please login first"
         })
     }else{
-        jwt.verify(req.headers.token,'secret',(err, data)=>{
+        jwt.verify(req.headers.token,req.app.get('secret'),(err, data)=>{
             if(err){
                 res.json({
                     success: false
