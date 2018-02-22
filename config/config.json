@@ -1,0 +1,4 @@
+{
+    "MONGO": "mongodb://rajat:rajat@ds239648.mlab.com:39648/sample",
+    "PORT": 8000
+}
