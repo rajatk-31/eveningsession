@@ -14,6 +14,10 @@ mongoose.connect(config.MONGO, ()=>{
 
 app.use('/', todo)
 
+app.use(express.static(__dirname+'/dist'))
+app.use((req,res)=>{
+    res.sendFile(__dirname+'/dist/index.html')
+})
 
 app.listen(config.PORT, ()=>{
     console.log("Server started on port : ",config.PORT)

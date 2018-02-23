@@ -1,7 +1,7 @@
 var dbTask = require('../models/todo')
 
 
-exports.createTodo = (req,res)=>{
+exports.createTodo = (req,res,next)=>{
     if(!req.body.name){
         res.json({
             success: false,
@@ -14,10 +14,7 @@ exports.createTodo = (req,res)=>{
         })
         newTask.save((err, data)=>{
             if(err){
-                res.json({
-                    success: false,
-                    msg: "Error in database"
-                })
+                next();
             }else{
                 res.json({
                     success: true,
